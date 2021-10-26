@@ -127,3 +127,7 @@ const examplePromise = () => {
     - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
 # Your own learning
 If you are interested in setting up your own project for things outside of class, you can run the command to start a React project `npx create-react-app {APP_NAME}` and setup all the files and structures from scratch.
+
+
+## Technical Flow Chart
+- https://docs.google.com/presentation/d/15Lm1_wA5UUzNRw4_vrPZo3isPSOv0OcDhRwwXfQtZ4A/edit#slide=id.p
