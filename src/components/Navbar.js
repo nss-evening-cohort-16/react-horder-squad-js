@@ -59,12 +59,12 @@ StuffNavbar.defaultProps = {
 };
 
 StuffNavbar.propTypes = {
-  user: PropTypes.shape({
+  user: PropTypes.oneOfType([PropTypes.bool, PropTypes.shape({
     fullName: PropTypes.string,
     profilePic: PropTypes.string,
     uid: PropTypes.string,
     user: PropTypes.string,
-  }),
+  })]),
 };
 
 export default StuffNavbar;
