@@ -30,5 +30,7 @@ export default function SignIn({ user }) {
 }
 
 SignIn.propTypes = {
-  user: PropTypes.node.isRequired,
+  user: PropTypes.node,
 };
+
+SignIn.defaultProps = { user: null };

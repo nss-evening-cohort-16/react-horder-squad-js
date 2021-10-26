@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import SignIn from '../views/SignIn';
 
 function Initialize() {
   const [user, setUser] = useState(null);
@@ -12,7 +13,7 @@ function Initialize() {
           uid: authed.uid,
           fullName: authed.displayName,
           profilePic: authed.photoURL,
-          user: authed.email.splut('@')[0],
+          user: authed.email.split('@')[0],
         };
         setUser(userObj);
       } else if (user || user === null) {
@@ -21,7 +22,17 @@ function Initialize() {
     });
   }, []);
 
-  return <div className="App">{/* {user ? () : ()} */}</div>;
+  return (
+    <div className="App">
+      {user ? (
+        <>
+          <h1>Signed In!</h1>
+        </>
+      ) : (
+        <SignIn user={user} />
+      )}
+    </div>
+  );
 }
 
 export default Initialize;
