@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import StuffNavbar from '../components/Navbar';
 import SignIn from '../views/SignIn';
 import Routes from '../routes';
 
@@ -25,6 +26,7 @@ function Initialize() {
 
   return (
     <div className="App">
+      <StuffNavbar user={user} />
       {user ? (
         <>
           <Routes />
