@@ -12,7 +12,7 @@ function Initialize() {
           uid: authed.uid,
           fullName: authed.displayName,
           profilePic: authed.photoURL,
-          user: authed.email.splut('@')[0],
+          user: authed.email.split('@')[0],
         };
         setUser(userObj);
       } else if (user || user === null) {
