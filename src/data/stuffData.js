@@ -12,4 +12,11 @@ const getStuff = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default getStuff;
+const updateStuff = (stuffObj) => new Promise((resolve, reject) => {
+  axios
+    .patch(`${baseUrl}/stuff/${stuffObj.firebaseKey}.json`, stuffObj)
+    .then(() => getStuff().then(resolve))
+    .catch(reject);
+});
+
+export { getStuff, updateStuff };
