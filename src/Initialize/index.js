@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import StuffNavbar from '../components/Navbar';
 import SignIn from '../views/SignIn';
+import Routes from '../routes';
 
 function Initialize() {
   const [user, setUser] = useState(null);
@@ -28,7 +29,7 @@ function Initialize() {
       <StuffNavbar user={user} />
       {user ? (
         <>
-          <h1>Signed In!</h1>
+          <Routes />
         </>
       ) : (
         <SignIn user={user} />
