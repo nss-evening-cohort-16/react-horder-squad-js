@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { createItem } from '../data/stuffData';
 
 const initialState = {
   firebaseKey: '',
@@ -45,9 +46,10 @@ export default function StuffForm({ obj }) {
       // Promises here
       resetForm();
     } else {
-      // Promise to create new stuff
-      resetForm();
-      history.push('/');
+      createItem(formInput).then(() => {
+        resetForm();
+        history.push('/');
+      });
     }
   };
 
@@ -61,6 +63,7 @@ export default function StuffForm({ obj }) {
             name="itemName"
             value={formInput.itemName}
             onChange={handleChange}
+            placeholder="Stuffs Name"
             required
           />
         </div>
@@ -72,6 +75,7 @@ export default function StuffForm({ obj }) {
             name="itemDescription"
             value={formInput.itemDescription}
             onChange={handleChange}
+            placeholder="Stuffs Description"
             required
           />
         </div>
@@ -82,6 +86,7 @@ export default function StuffForm({ obj }) {
             name="itemImage"
             value={formInput.itemImage}
             onChange={handleChange}
+            placeholder="Stuffs Image"
             required
           />
         </div>

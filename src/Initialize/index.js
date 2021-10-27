@@ -29,7 +29,7 @@ function Initialize() {
       <StuffNavbar user={user} />
       {user ? (
         <>
-          <Routes />
+          <Routes user={user} />
         </>
       ) : (
         <SignIn user={user} />
