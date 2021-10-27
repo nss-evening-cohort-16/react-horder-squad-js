@@ -12,6 +12,9 @@ export default function Stuff({ stuff }) {
           <Link to={`/edit/${stuff.firebaseKey}`} className="btn btn-warning">
             Edit
           </Link>
+          <Link to={`/details/${stuff.firebaseKey}`} className="btn btn-info">
+            Details
+          </Link>
           <button type="button" className="btn btn-danger">
             Delete
           </button>
