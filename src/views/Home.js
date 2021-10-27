@@ -22,7 +22,7 @@ export default function Home() {
           <h1 className="text-center">All Stuff</h1>
           <div className="d-flex flex-wrap">
             {items.map((stuff) => (
-              <Stuff key={stuff.firebaseKey} stuff={stuff} />
+              <Stuff key={stuff.firebaseKey} stuff={stuff} setItems={setItems} />
             ))}
           </div>
         </>
