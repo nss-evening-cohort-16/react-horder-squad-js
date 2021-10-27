@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { createItem } from '../data/stuffData';
+import { useHistory, useParams } from 'react-router-dom';
+import { createItem, updateItem, getSingleItem } from '../data/stuffData';
 
 const initialState = {
   firebaseKey: '',
@@ -11,22 +11,25 @@ const initialState = {
   uid: '',
 };
 
-export default function StuffForm({ obj }) {
+export default function StuffForm({ user }) {
   const [formInput, setFormInput] = useState({});
+  const { fbKey } = useParams({});
   const history = useHistory();
 
   useEffect(() => {
-    if (obj.firebaseKey) {
-      setFormInput({
-        itemDescription: obj.itemDescription,
-        itemImage: obj.itemImage,
-        itemName: obj.itemName,
-        uid: obj.uid,
+    if (fbKey) {
+      getSingleItem().then(() => {
+        setFormInput({
+          itemDescription: user.itemDescription,
+          itemImage: user.itemImage,
+          itemName: user.itemName,
+          uid: user.uid,
+        });
       });
     } else {
       setFormInput(initialState);
     }
-  }, [obj]);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,9 +45,10 @@ export default function StuffForm({ obj }) {
 
   const handleSubmit = (e) => {
     e.prventDefault();
-    if (obj.firebaseKey) {
-      // Promises here
-      resetForm();
+    if (fbKey) {
+      updateItem(fbKey).then(() => {
+        resetForm();
+      });
     } else {
       createItem(formInput).then(() => {
         resetForm();
@@ -101,7 +105,7 @@ export default function StuffForm({ obj }) {
 }
 
 StuffForm.propTypes = {
-  obj: PropTypes.shape({
+  user: PropTypes.shape({
     itemDescription: PropTypes.string,
     itemImage: PropTypes.string,
     itemName: PropTypes.string,
@@ -110,4 +114,4 @@ StuffForm.propTypes = {
   }),
 };
 
-StuffForm.defaultProps = { obj: {} };
+StuffForm.defaultProps = { user: {} };
