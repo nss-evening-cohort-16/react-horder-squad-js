@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Stuff from '../components/Stuff';
-import getStuff from '../data/stuffData';
+import { getItems } from '../data/stuffData';
 
 export default function Home() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     let isMounted = true;
-    getStuff().then((stuffArray) => {
+    getItems().then((stuffArray) => {
       if (isMounted) setItems(stuffArray);
     });
     return () => {
