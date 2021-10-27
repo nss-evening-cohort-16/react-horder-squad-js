@@ -30,3 +30,14 @@ body {
   margin-left: auto;
   margin-right: 1em;
 }
+
+.item-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em 5em 0 5em;
+}
+
+.item-details-img {
+  width: 10em;
+}
