@@ -9,6 +9,12 @@ const getItems = async () => {
   return stuffData;
 };
 
+const getSingleItem = async (fbKey) => {
+  const item = await axios.get(`${fbUrl}/stuff/${fbKey}.json`);
+  const itemData = item.data;
+  return itemData;
+};
+
 const createItem = (itemObj) => new Promise((resolve, reject) => {
   axios.post(`${fbUrl}/stuff.json`, itemObj).then((obj) => {
     const fbKey = { firebaseKey: obj.data.name };
@@ -32,5 +38,5 @@ const updateItem = (fbKey, updateObj) => new Promise((resolve, reject) => {
 });
 
 export {
-  getItems, updateItem, deleteItem, createItem,
+  getItems, updateItem, deleteItem, createItem, getSingleItem,
 };

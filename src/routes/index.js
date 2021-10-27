@@ -9,7 +9,7 @@ export default function Routes() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/new" />
-        <Route exact path="/details:fbKey">
+        <Route exact path="/details/:fbKey">
           <ItemDetails />
         </Route>
         <Route exact path="/edit/ :key" />
