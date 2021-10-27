@@ -13,7 +13,7 @@ const initialState = {
 
 export default function StuffForm({ user }) {
   const [formInput, setFormInput] = useState({});
-  const { fbKey } = useParams({});
+  const { fbKey } = useParams();
   const history = useHistory();
 
   useEffect(() => {
@@ -44,13 +44,13 @@ export default function StuffForm({ user }) {
   };
 
   const handleSubmit = (e) => {
-    e.prventDefault();
+    e.preventDefault();
     if (fbKey) {
       updateItem(fbKey).then(() => {
         resetForm();
       });
     } else {
-      createItem(formInput).then(() => {
+      createItem({ ...formInput, uid: user.uid }).then(() => {
         resetForm();
         history.push('/');
       });
@@ -65,7 +65,7 @@ export default function StuffForm({ user }) {
             type="text"
             className="form-control"
             name="itemName"
-            value={formInput.itemName}
+            value={formInput.itemName || ''}
             onChange={handleChange}
             placeholder="Stuffs Name"
             required
@@ -77,7 +77,7 @@ export default function StuffForm({ user }) {
             id="exampleFormControlTextarea1"
             rows="3"
             name="itemDescription"
-            value={formInput.itemDescription}
+            value={formInput.itemDescription || ''}
             onChange={handleChange}
             placeholder="Stuffs Description"
             required
@@ -88,7 +88,7 @@ export default function StuffForm({ user }) {
             type="url"
             className="form-control"
             name="itemImage"
-            value={formInput.itemImage}
+            value={formInput.itemImage || ''}
             onChange={handleChange}
             placeholder="Stuffs Image"
             required

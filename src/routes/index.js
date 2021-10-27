@@ -3,15 +3,15 @@ import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ItemDetails from '../components/ItemDetails';
 import Home from '../views/Home';
-import StuffForm from '../components/StuffForm';
+import NewStuff from '../components/NewStuff';
 
 export default function Routes({ user }) {
   return (
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/new" user={user}>
-          <StuffForm />
+        <Route exact path="/new">
+          <NewStuff user={user} />
         </Route>
         <Route exact path="/details/:fbKey">
           <ItemDetails />
@@ -23,5 +23,7 @@ export default function Routes({ user }) {
 }
 
 Routes.propTypes = {
-  user: PropTypes.shape(PropTypes.obj).isRequired,
+  user: PropTypes.shape(PropTypes.obj),
 };
+
+Routes.defaultProps = { user: {} };
