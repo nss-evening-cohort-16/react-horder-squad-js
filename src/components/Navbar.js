@@ -37,16 +37,25 @@ const StuffNavbar = ({ user }) => {
                 </NavItem>
                 <UncontrolledDropdown className="user-menu" nav inNavbar>
                   <DropdownToggle nav caret>
-                    <img className="user-img" src={user.profilePic} alt="user" />{user.user}
+                    <img
+                      className="user-img"
+                      src={user.profilePic}
+                      alt="user"
+                    />
+                    {user.user}
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      <NavLink className="sign-out-user" onClick={signOutUser}>Sign Out</NavLink>
+                      <NavLink className="sign-out-user" onClick={signOutUser}>
+                        Sign Out
+                      </NavLink>
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </>
-            ) : ''}
+            ) : (
+              ''
+            )}
           </Nav>
         </Collapse>
       </Navbar>
@@ -59,12 +68,15 @@ StuffNavbar.defaultProps = {
 };
 
 StuffNavbar.propTypes = {
-  user: PropTypes.oneOfType([PropTypes.bool, PropTypes.shape({
-    fullName: PropTypes.string,
-    profilePic: PropTypes.string,
-    uid: PropTypes.string,
-    user: PropTypes.string,
-  })]),
+  user: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({
+      fullName: PropTypes.string,
+      profilePic: PropTypes.string,
+      uid: PropTypes.string,
+      user: PropTypes.string,
+    }),
+  ]),
 };
 
 export default StuffNavbar;
