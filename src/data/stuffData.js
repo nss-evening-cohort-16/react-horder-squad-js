@@ -1,6 +1,15 @@
-// import axios from "axios";
-// import firebaseConfig from '../apiKeys';
+import axios from 'axios';
+import firebaseConfig from '../api/apiKeys';
 
-// const baseURL = firebaseConfig.databaseURL;
+const baseUrl = firebaseConfig.databaseURL;
 
-// const updateStuff = () => new Promise((resolve, reject))
+const getStuff = () => new Promise((resolve, reject) => {
+  axios
+    .get(`${baseUrl}/stuff.json`)
+    .then((response) => {
+      resolve(Object.values(response.data));
+    })
+    .catch(reject);
+});
+
+export default getStuff;
