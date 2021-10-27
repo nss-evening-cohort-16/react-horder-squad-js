@@ -1,0 +1,36 @@
+import axios from 'axios';
+import firebaseConfig from '../api/apiKeys';
+
+const fbUrl = firebaseConfig.databaseURL;
+
+const getItems = async () => {
+  const stuff = await axios.get(`${fbUrl}/stuff.json`);
+  const stuffData = Object.values(stuff.data);
+  return stuffData;
+};
+
+const createItem = (itemObj) => new Promise((resolve, reject) => {
+  axios.post(`${fbUrl}/stuff.json`, itemObj).then((obj) => {
+    const fbKey = { firebaseKey: obj.data.name };
+    axios.patch(`${fbUrl}/stuff/${obj.data.name}.json`, fbKey)
+      .then(() => {
+        getItems().then(resolve);
+      });
+  }).catch(reject);
+});
+
+const deleteItem = (fbKey) => new Promise((resolve, reject) => {
+  axios.delete(`${fbUrl}/stuff/${fbKey}.json`)
+    .then(() => getItems().then(resolve))
+    .catch(reject);
+});
+
+const updateItem = (fbKey, updateObj) => new Promise((resolve, reject) => {
+  axios.patch(`${fbUrl}/stuff/${fbKey}.json`, updateObj)
+    .then(() => getItems(updateObj.uid).then(resolve))
+    .catch(reject);
+});
+
+export {
+  getItems, updateItem, deleteItem, createItem,
+};
