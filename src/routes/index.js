@@ -26,4 +26,4 @@ Routes.propTypes = {
   user: PropTypes.shape(PropTypes.obj),
 };
 
-Routes.defaultProps = { user: {} };
+Routes.defaultProps = { user: null };

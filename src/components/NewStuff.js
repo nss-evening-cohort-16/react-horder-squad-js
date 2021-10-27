@@ -11,7 +11,7 @@ export default function NewStuff({ user }) {
 }
 
 NewStuff.propTypes = {
-  user: PropTypes.shape(PropTypes.object),
+  user: PropTypes.shape(PropTypes.obj),
 };
 
 NewStuff.defaultProps = { user: {} };
