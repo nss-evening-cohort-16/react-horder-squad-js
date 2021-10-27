@@ -31,8 +31,8 @@ const deleteItem = (fbKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const updateItem = (fbKey, updateObj) => new Promise((resolve, reject) => {
-  axios.patch(`${fbUrl}/stuff/${fbKey}.json`, updateObj)
+const updateItem = (updateObj) => new Promise((resolve, reject) => {
+  axios.patch(`${fbUrl}/stuff/${updateObj.firebaseKey}.json`, updateObj)
     .then(() => getItems(updateObj.uid).then(resolve))
     .catch(reject);
 });
