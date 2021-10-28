@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { deleteItem } from '../data/stuffData';
 
-export default function Stuff({ stuff }) {
+export default function Stuff({ stuff, setItems }) {
+  const handleDelete = () => {
+    deleteItem(stuff.firebaseKey).then((items) => setItems(items));
+  };
+
   return (
     <div>
       <div className="card" style={{ width: '18rem', margin: '3px' }}>
@@ -15,7 +20,11 @@ export default function Stuff({ stuff }) {
           <Link to={`/details/${stuff.firebaseKey}`} className="btn btn-info">
             Details
           </Link>
-          <button type="button" className="btn btn-danger">
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={handleDelete}
+          >
             Delete
           </button>
         </div>
@@ -26,4 +35,5 @@ export default function Stuff({ stuff }) {
 
 Stuff.propTypes = {
   stuff: PropTypes.shape(PropTypes.obj).isRequired,
+  setItems: PropTypes.func.isRequired,
 };
