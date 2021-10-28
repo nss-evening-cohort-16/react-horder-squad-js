@@ -96,7 +96,7 @@ export default function StuffForm({ user }) {
         </div>
         <div>
           <button type="submit" className="btn btn-success">
-            Submit
+            {fbKey ? 'Edit' : 'Submit'}
           </button>
         </div>
       </form>
