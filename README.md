@@ -5,6 +5,7 @@
 
 ## Data
 ![image](https://user-images.githubusercontent.com/86808221/139348379-3794f7f6-dd00-40f1-ae44-4f654bcd059f.png)
+Data Flowchart
 ![image](https://user-images.githubusercontent.com/86808221/139351620-6609248b-61bf-4bb7-98ee-34c7535ef03d.png)
 [Use this JSON file to seed your "items" collection in Firebase.](./items.json)
 ## Assignment Parts
