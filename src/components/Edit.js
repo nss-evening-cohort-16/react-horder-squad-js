@@ -1,10 +1,9 @@
-// import React from 'react';
+import React from 'react';
 
-// export default function Edit() {
-
-//   return (
-//     <div>
-//       <h1>Edit!</h1>
-//     </div>
-//   );
-// }
+export default function Edit() {
+  return (
+    <div>
+      <h1>Edit!</h1>
+    </div>
+  );
+}
