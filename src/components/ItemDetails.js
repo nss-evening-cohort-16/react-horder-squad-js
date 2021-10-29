@@ -18,7 +18,11 @@ export default function ItemDetails() {
 
   return (
     <div className="item-details-container">
-      <img className="item-details-img" src={item.itemImage} alt={item.itemName} />
+      <img
+        className="item-details-img"
+        src={item.itemImage}
+        alt={item.itemName}
+      />
       <h1>{item.itemName}</h1>
       <p>{item.itemDescription}</p>
       <Link to={`/edit/${item.firebaseKey}`} className="btn btn-warning">

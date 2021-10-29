@@ -18,12 +18,12 @@ export default function StuffForm({ user }) {
 
   useEffect(() => {
     if (fbKey) {
-      getSingleItem().then(() => {
+      getSingleItem(fbKey).then((obj) => {
         setFormInput({
-          itemDescription: user.itemDescription,
-          itemImage: user.itemImage,
-          itemName: user.itemName,
-          uid: user.uid,
+          itemDescription: obj.itemDescription,
+          itemImage: obj.itemImage,
+          itemName: obj.itemName,
+          firebaseKey: obj.firebaseKey,
         });
       });
     } else {
@@ -46,8 +46,9 @@ export default function StuffForm({ user }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (fbKey) {
-      updateItem(fbKey).then(() => {
+      updateItem(formInput).then(() => {
         resetForm();
+        history.push('/');
       });
     } else {
       createItem({ ...formInput, uid: user.uid }).then(() => {
@@ -96,7 +97,7 @@ export default function StuffForm({ user }) {
         </div>
         <div>
           <button type="submit" className="btn btn-success">
-            {fbKey ? 'Edit' : 'Submit'}
+            {fbKey ? 'Update' : 'Submit'}
           </button>
         </div>
       </form>

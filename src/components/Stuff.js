@@ -20,7 +20,11 @@ export default function Stuff({ stuff, setItems }) {
           <Link to={`/details/${stuff.firebaseKey}`} className="btn btn-info">
             Details
           </Link>
-          <button type="button" className="btn btn-danger" onClick={handleDelete}>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={handleDelete}
+          >
             Delete
           </button>
         </div>
