@@ -11,8 +11,11 @@ export default function Edit() {
     getSingleItem(fbKey).then(setEditItem);
   }, []);
   return (
-    <div>
-      <StuffForm user={editItem} />
-    </div>
+    <>
+      <h1 className="page-header">Edit Stuff</h1>
+      <div className="form-container">
+        <StuffForm user={editItem} />
+      </div>
+    </>
   );
 }
