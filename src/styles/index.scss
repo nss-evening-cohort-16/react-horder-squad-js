@@ -2,7 +2,22 @@
 @import 'globals';
 
 body {
-  background-color: $favColor !important;
+  background-image: url(../assets/box-bg.png) !important;
+}
+
+.navbar {
+  background-color: #a6c7ffc2;
+  color: black;
+  font-size: 1.1em;
+}
+
+.nav-logo {
+  font-family: "Forgotten Junk";
+  margin-left: .5em;
+}
+
+.navbar-brand {
+  font-size: 10em;
 }
 
 .user-img {
@@ -36,8 +51,81 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 1em 5em 0 5em;
+  padding: 5em 0 5em 0;
 }
 
 .item-details-img {
-  width: 10em;
+  width: 20em;
+  margin-bottom: 2em;
+}
+
+.stuff-card {
+  flex-basis: 100%;
+  margin: .2em;
+  overflow: hidden;
+}
+
+.card-interior {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10em;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-btn-container {
+  margin: auto 0 1em 0
+}
+
+.card-btn-container .btn {
+  margin: 0 .25em 0 .25em;
+  text-shadow: none;
+}
+
+.page-header {
+  background-image: url(../assets/hoard.jpg);
+  background-size: 20%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-size: 7em;
+  text-align: center;
+  font-family: "Forgotten Junk";
+  -webkit-filter: drop-shadow(2px 2px black);
+}
+
+.form-container {
+  display: flex;
+  margin-top: 2.5em;
+  justify-content: center;
+}
+
+.stuff-form {
+  flex-basis: 80%;
+  padding: 1em;
+}
+
+.stuff-form textarea {
+  margin: .5em 0 .5em 0;
+}
+
+.form-btn-group {
+  margin-top: .5em;
+  display: flex;
+  justify-content: center;
+}
+
+.junk-div-style {
+  border: 1px transparent;
+  border-radius: 3px;
+  background-image: linear-gradient(rgba(9, 34, 80, 0.795),rgba(87, 87, 87, 0.829));
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-shadow: 1.2px 1.2px 3px black;
 }

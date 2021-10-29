@@ -17,23 +17,21 @@ export default function ItemDetails() {
   }, []);
 
   return (
-    <div className="item-details-container">
-      <img
-        className="item-details-img"
-        src={item.itemImage}
-        alt={item.itemName}
-      />
+    <div className="item-details-container junk-div-style">
+      <img className="item-details-img" src={item.itemImage} alt={item.itemName} />
       <h1>{item.itemName}</h1>
       <p>{item.itemDescription}</p>
-      <Link to={`/edit/${item.firebaseKey}`} className="btn btn-warning">
-        Edit
-      </Link>
-      <Link to={`/details/${item.firebaseKey}`} className="btn btn-info">
-        Details
-      </Link>
-      <button type="button" className="btn btn-danger" onClick={handleDelete}>
-        Delete
-      </button>
+      <div className="card-btn-container">
+        <Link to={`/edit/${item.firebaseKey}`} className="btn btn-success">
+          <i className="far fa-edit" /> Edit
+        </Link>
+        <Link to={`/details/${item.firebaseKey}`} className="btn btn-primary">
+          <i className="far fa-file-alt" /> Details
+        </Link>
+        <button type="button" className="btn btn-danger" onClick={handleDelete}>
+          <i className="far fa-trash-alt" /> Delete
+        </button>
+      </div>
     </div>
   );
 }

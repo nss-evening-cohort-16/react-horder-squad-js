@@ -60,7 +60,7 @@ export default function StuffForm({ user }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="stuff-form junk-div-style" onSubmit={handleSubmit}>
         <div>
           <input
             type="text"
@@ -95,7 +95,7 @@ export default function StuffForm({ user }) {
             required
           />
         </div>
-        <div>
+        <div className="form-btn-group">
           <button type="submit" className="btn btn-success">
             {fbKey ? 'Update' : 'Submit'}
           </button>

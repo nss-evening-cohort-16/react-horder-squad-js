@@ -22,8 +22,8 @@ const StuffNavbar = ({ user }) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">React Hoarder</NavbarBrand>
+      <Navbar className="navbar" light expand="md">
+        <NavbarBrand className="nav-logo" href="/">React Hoarder</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="container-fluid" navbar>
