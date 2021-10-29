@@ -22,7 +22,11 @@ export default function Home() {
           <h1 className="page-header">All Stuff</h1>
           <div className="card-container">
             {items.map((stuff) => (
-              <Stuff key={stuff.firebaseKey} stuff={stuff} setItems={setItems} />
+              <Stuff
+                key={stuff.firebaseKey}
+                stuff={stuff}
+                setItems={setItems}
+              />
             ))}
           </div>
         </>

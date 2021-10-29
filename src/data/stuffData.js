@@ -16,17 +16,20 @@ const getSingleItem = async (fbKey) => {
 };
 
 const createItem = (itemObj) => new Promise((resolve, reject) => {
-  axios.post(`${fbUrl}/stuff.json`, itemObj).then((obj) => {
-    const fbKey = { firebaseKey: obj.data.name };
-    axios.patch(`${fbUrl}/stuff/${obj.data.name}.json`, fbKey)
-      .then(() => {
+  axios
+    .post(`${fbUrl}/stuff.json`, itemObj)
+    .then((obj) => {
+      const fbKey = { firebaseKey: obj.data.name };
+      axios.patch(`${fbUrl}/stuff/${obj.data.name}.json`, fbKey).then(() => {
         getItems().then(resolve);
       });
-  }).catch(reject);
+    })
+    .catch(reject);
 });
 
 const deleteItem = (fbKey) => new Promise((resolve, reject) => {
-  axios.delete(`${fbUrl}/stuff/${fbKey}.json`)
+  axios
+    .delete(`${fbUrl}/stuff/${fbKey}.json`)
     .then(() => getItems().then(resolve))
     .catch(reject);
 });
