@@ -17,7 +17,7 @@ export default function Routes({ user }) {
         <Route exact path="/details/:fbKey">
           <ItemDetails />
         </Route>
-        <Route exact path="/edit/:key">
+        <Route exact path="/edit/:fbKey">
           <Edit user={user} />
         </Route>
       </Switch>
