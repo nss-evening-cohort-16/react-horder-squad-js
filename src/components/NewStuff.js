@@ -4,9 +4,12 @@ import StuffForm from './StuffForm';
 
 export default function NewStuff({ user }) {
   return (
-    <div>
-      <StuffForm user={user} />
-    </div>
+    <>
+      <h1 className="page-header">Order From Amazon</h1>
+      <div className="form-container">
+        <StuffForm user={user} />
+      </div>
+    </>
   );
 }
 

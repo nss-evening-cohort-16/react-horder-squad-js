@@ -19,8 +19,8 @@ export default function Home() {
     <div className="container">
       {items ? (
         <>
-          <h1 className="text-center">All Stuff</h1>
-          <div className="d-flex flex-wrap">
+          <h1 className="page-header">All Stuff</h1>
+          <div className="card-container">
             {items.map((stuff) => (
               <Stuff key={stuff.firebaseKey} stuff={stuff} setItems={setItems} />
             ))}

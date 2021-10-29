@@ -9,23 +9,25 @@ export default function Stuff({ stuff, setItems }) {
   };
 
   return (
-    <div>
-      <div className="card" style={{ width: '18rem', margin: '3px' }}>
-        <div className="card-body">
+    <>
+      <div className="stuff-card junk-div-style">
+        <div className="card-interior">
           <h5 className="card-title">{stuff.itemName}</h5>
           <p className="card-title">{stuff.itemDescription}</p>
-          <Link to={`/edit/${stuff.firebaseKey}`} className="btn btn-warning">
-            Edit
-          </Link>
-          <Link to={`/details/${stuff.firebaseKey}`} className="btn btn-info">
-            Details
-          </Link>
-          <button type="button" className="btn btn-danger" onClick={handleDelete}>
-            Delete
-          </button>
+          <div className="card-btn-container">
+            <Link to={`/edit/${stuff.firebaseKey}`} className="btn btn-success">
+              <i className="far fa-edit" /> Edit
+            </Link>
+            <Link to={`/details/${stuff.firebaseKey}`} className="btn btn-primary">
+              <i className="far fa-file-alt" /> Details
+            </Link>
+            <button type="button" className="btn btn-danger" onClick={handleDelete}>
+              <i className="far fa-trash-alt" /> Delete
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
