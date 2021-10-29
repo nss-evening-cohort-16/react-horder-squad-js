@@ -48,6 +48,7 @@ export default function StuffForm({ user }) {
     if (fbKey) {
       updateItem(fbKey).then(() => {
         resetForm();
+        history.push('/');
       });
     } else {
       createItem({ ...formInput, uid: user.uid }).then(() => {

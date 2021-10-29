@@ -1,21 +1,18 @@
-// import React from 'react';
-// import { useHistory } from 'react-router-dom';
-// import { getSingleItem } from '../data/stuffData';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import StuffForm from './StuffForm';
+import { getSingleItem } from '../data/stuffData';
 
-// export default function Edit({ user }) {
-//   const [formInput, setFormInput] = useState({});
-//   const { fbKey } = useParams();
-//   const history = useHistory();
+export default function Edit() {
+  const { fbKey } = useParams;
+  const [editItem, setEditItem] = useState({});
 
-//   useEffect(() => {
-//     getSingleItem().then(() => {
-
-//     })
-//   })
-
-//   return (
-//     <div>
-//       <h1>Edit!</h1>
-//     </div>
-//   );
-// }
+  useEffect(() => {
+    getSingleItem(fbKey).then(setEditItem);
+  }, []);
+  return (
+    <div>
+      <StuffForm user={editItem} />
+    </div>
+  );
+}

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ItemDetails from '../components/ItemDetails';
 import Home from '../views/Home';
 import NewStuff from '../components/NewStuff';
+import Edit from '../components/Edit';
 
 export default function Routes({ user }) {
   return (
@@ -16,7 +17,9 @@ export default function Routes({ user }) {
         <Route exact path="/details/:fbKey">
           <ItemDetails />
         </Route>
-        <Route exact path="/edit/ :key" />
+        <Route exact path="/edit/:key">
+          <Edit user={user} />
+        </Route>
       </Switch>
     </div>
   );
