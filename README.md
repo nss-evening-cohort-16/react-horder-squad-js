@@ -1,15 +1,16 @@
-# React Hoarder
+# React Hoarder [![Netlify Status](https://api.netlify.com/api/v1/badges/a203a7d2-c3dd-4ef3-b199-76dbc2fb382b/deploy-status)](https://app.netlify.com/sites/squadjs-react-hoarder/deploys)
+
 
 > You are a hoarder. But not just any hoarder. You are an arrogant hoarder who wants to show off all of the stuff you hoard. You want an application that gives you a list of anything possible to hoard, and add them to your own personal collection as you acquire them.
-> 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a203a7d2-c3dd-4ef3-b199-76dbc2fb382b/deploy-status)](https://app.netlify.com/sites/squadjs-react-hoarder/deploys)
-https://squadjs-react-hoarder.netlify.app/
+
+### [Deployed App](https://squadjs-react-hoarder.netlify.app)
+
 ## Data
 ![image](https://user-images.githubusercontent.com/86808221/139348379-3794f7f6-dd00-40f1-ae44-4f654bcd059f.png)
-Data Flowchart
+
+## Data Flowchart
 ![image](https://user-images.githubusercontent.com/86808221/139351620-6609248b-61bf-4bb7-98ee-34c7535ef03d.png)
 [Use this JSON file to seed your "items" collection in Firebase.](./items.json)
-## Assignment Parts
 
 # React Hoarder Part 1: Authentication and Routing
 
