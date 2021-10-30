@@ -25,9 +25,6 @@ export default function ItemDetails() {
         <Link to={`/edit/${item.firebaseKey}`} className="btn btn-success">
           <i className="far fa-edit" /> Edit
         </Link>
-        <Link to={`/details/${item.firebaseKey}`} className="btn btn-primary">
-          <i className="far fa-file-alt" /> Details
-        </Link>
         <button type="button" className="btn btn-danger" onClick={handleDelete}>
           <i className="far fa-trash-alt" /> Delete
         </button>
